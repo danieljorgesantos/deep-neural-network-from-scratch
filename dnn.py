@@ -57,15 +57,13 @@ for epoch in range(epochs):
     layer_3 = sigmoid(np.dot(layer_2, w_2) + b_2)
     layer_4 = sigmoid(np.dot(layer_3, w_3) + b_3)
 
-    # Calculate the error
+    # Calculate the error and Backpropagation
     layer_4_error = neural_network_real_result - layer_4
     layer_4_delta = layer_4_error * sigmoid_derivative(layer_4)
 
-    # Calculate the error
     layer_3_error = layer_4_delta.dot(w_3.T)
     layer_3_delta = layer_3_error * sigmoid_derivative(layer_3)
 
-    # Backpropagation
     layer_2_error = layer_3_delta.dot(w_2.T)
     layer_2_delta = layer_2_error * sigmoid_derivative(layer_2)
 
