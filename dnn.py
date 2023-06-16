@@ -93,6 +93,7 @@ for epoch in range(epochs):
     w_0 += learning_rate * layer_0.T.dot(layer_1_delta)
     b_0 += learning_rate * np.sum(layer_1_delta, axis=0, keepdims=True)
 
+    # print the loss and epoch to see training on screen
     if epoch % 100 == 0:
         loss = calculate_loss(neural_network_real_result, layer_4)
         print(f"Epoch: {epoch+1}, Loss: {loss}")
